@@ -60,6 +60,28 @@ local priestSpells = {
 	{205385, " Shadow Crash", "Fragor de sombra"}
 }
 
+local evokerSpells = {
+	{360827, "Blistering Scales", "Escamas virulentas"},
+	{360823, "Naturalize", "Naturalizar"},
+	{374251, "Cauterizing Flame", "Llama cauterizante"},
+	{375087, "Dragonrage", "Furia dracónica"},
+	{364343, "Echo", "Eco"},
+	{355913, "Emerald Blossom", "Flor esmeralda"},
+	{361469, "Living Flame", "Llama viva"},
+	{370665, "Rescue", "Rescate"},
+	{366155, "Reversion", "Reversión"},
+	{360995, "Verdant Embrace", "Abrazo glauco"}
+}
+
+local mageSpells = {
+	{190356, "Blizzard", "Ventisca"},
+	{12472, "Icy Veins", "Venas heladas"},
+	{80353, "Time Warp", "Distorsión temporal"},
+	{190319, "Combustion", "Combustión"},
+	{2120, "Flamestrike", "Fogonazo"},
+	{153561, "Meteor", "Meteorito"}
+}
+
 --------------------------------------------------------------------
 -- Create or update global macro
 --------------------------------------------------------------------
@@ -161,5 +183,32 @@ if englishClass == "PRIEST" then
 	createCustomMacroNailuj("priestPenanceButton", priestSpells, 17, "Penance", "/cast [@mouseover,exists][@target,exists][@player] " .. chooseSpellByLanguage(priestSpells, 17))
 	createCustomMacroNailuj("priestVampiricEmbraceButton", priestSpells, 18, "Vampiric Embrace", "/use " .. chooseSpellByLanguage(priestSpells, 18) .. "\n/use 13")
 	createCustomMacroNailuj("priestShadowCrashButton", priestSpells, 19, "Shadow crash", "/use [@cursor] " .. chooseSpellByLanguage(priestSpells, 19))
+end
+
+--------------------------------------------------------------------
+-- Creating evoker macros
+--------------------------------------------------------------------
+if englishClass == "EVOKER" then
+	createCustomMacroNailuj("evokerBlisteringScalesButton", evokerSpells, 1, "BlisteringScales", "/use [@mouseover] " .. chooseSpellByLanguage(evokerSpells, 1))
+	createCustomMacroNailuj("evokerDispelButton", evokerSpells, 3, "Dispel", "/use [nomod:alt, @mouseover] " .. chooseSpellByLanguage(evokerSpells, 2) .. " ; " .. " [mod:alt, @mouseover] " .. chooseSpellByLanguage(evokerSpells, 3))
+	createCustomMacroNailuj("evokerDragonrageButton", evokerSpells, 4, "Dragonrage", "/use " .. chooseSpellByLanguage(evokerSpells, 4) .. "\n" .. "/use 13")
+	createCustomMacroNailuj("evokerEchoButton", evokerSpells, 5, "Echo", "/use [@mouseover] " .. chooseSpellByLanguage(evokerSpells, 5))
+	createCustomMacroNailuj("evokerEmeraldBlossomButton", evokerSpells, 6, "Emerald blossom", "/use [@player] " .. chooseSpellByLanguage(evokerSpells, 6))
+	createCustomMacroNailuj("evokerLivingFlamePlayerButton", evokerSpells, 7, "Flame Player", "/use [@player] " .. chooseSpellByLanguage(evokerSpells, 7))
+	createCustomMacroNailuj("evokerLivingFlameButton", evokerSpells, 7, "Living flame", "/use [@mouseover] " .. chooseSpellByLanguage(evokerSpells, 7))
+	createCustomMacroNailuj("evokerRescueButton", evokerSpells, 8, "Rescue", "/use [@mouseover] " .. chooseSpellByLanguage(evokerSpells, 8))
+	createCustomMacroNailuj("evokerReversionButton", evokerSpells, 9, "Reversion", "/use [@mouseover] " .. chooseSpellByLanguage(evokerSpells, 9))
+	createCustomMacroNailuj("evokerVerdantEmbraceButton", evokerSpells, 10, "Verdant embrace", "/use [@mouseover] " .. chooseSpellByLanguage(evokerSpells, 10))
+end
+--------------------------------------------------------------------
+-- Creating mage macros
+--------------------------------------------------------------------
+if englishClass == "MAGE" then
+	createCustomMacroNailuj("mageBlizzardButton", mageSpells, 1, "Blizzard", "/use [@cursor] " .. chooseSpellByLanguage(mageSpells, 1))
+	createCustomMacroNailuj("mageIcyVeinsButton", mageSpells, 2, "Icy veins", "/use " .. chooseSpellByLanguage(mageSpells, 2) .. "\n" .. "/use 13")
+	createCustomMacroNailuj("mageTimeWarpButton", mageSpells, 3, "Time warp", "/use " .. chooseSpellByLanguage(mageSpells, 3) .. "\n" .. "/use 14")
+	createCustomMacroNailuj("mageCombustionButton", mageSpells, 4, "Combustion", "/use " .. chooseSpellByLanguage(mageSpells, 4) .. "\n" .. "/use 13")
+	createCustomMacroNailuj("mageFlamestrikeButton", mageSpells, 5, "Flamestrike", "/use [@cursor] " .. chooseSpellByLanguage(mageSpells, 5))
+	createCustomMacroNailuj("mageMeteorButton", mageSpells, 6, "Meteor", "/use [@cursor] " .. chooseSpellByLanguage(mageSpells, 6))
 end
 
