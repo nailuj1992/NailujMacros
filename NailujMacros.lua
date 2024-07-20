@@ -82,6 +82,17 @@ local mageSpells = {
 	{153561, "Meteor", "Meteorito"}
 }
 
+local shamanSpells = {
+	{192058, "Capacitor Totem", "Tótem capacitador"},
+	{2484, "Earthbind Totem", "Tótem Nexo Terrestre"},
+	{1064, "Chain heal", "Sanación en cadena"},
+	{77130, "Purify spirit", "Purificar espíritu"},
+	{77472, "Healing wave", "Ola de sanación"},
+	{61295, "Riptide", "Mareas Vivas"},
+	{8004, "Healing surge", "Oleada de sanación"},
+	{974, "Earth shield", "Escudo de tierra"}
+}
+
 --------------------------------------------------------------------
 -- Create or update global macro
 --------------------------------------------------------------------
@@ -176,7 +187,7 @@ if englishClass == "PRIEST" then
 	createCustomMacroNailuj("priestHwSanctifyButton", priestSpells, 4, "HW Sanctify", "/use [@cursor] " .. chooseSpellByLanguage(priestSpells, 4))
 	createCustomMacroNailuj("priestHwSerenityButton", priestSpells, 5, "HW Serenity", "/use [@mouseover] " .. chooseSpellByLanguage(priestSpells, 5))
 	createCustomMacroNailuj("priestMassDispelButton", priestSpells, 6, "Mass dispel", "/use [@cursor] " .. chooseSpellByLanguage(priestSpells, 6))
-	createCustomMacroNailuj("priestPowerInfusionButton", priestSpells, 7, "Power Infusion", "/use [@mouseover] " .. chooseSpellByLanguage(priestSpells, 7) .. "\n/use [@mouseover] 14")
+	createCustomMacroNailuj("priestPowerInfusionButton", priestSpells, 7, "Power Infusion", "/use [@focus] " .. chooseSpellByLanguage(priestSpells, 7) .. "\n/use [@mouseover] 14")
 	createCustomMacroNailuj("priestPrayerMendingButton", priestSpells, 8, "Pr of mending", "/use [@mouseover] " .. chooseSpellByLanguage(priestSpells, 8))
 	createCustomMacroNailuj("priestPurifyButton", priestSpells, 9, "Purify", "/use [@mouseover] " .. chooseSpellByLanguage(priestSpells, 9))
 	createCustomMacroNailuj("priestRenewButton", priestSpells, 10, "Renew", "/use [@mouseover] " .. chooseSpellByLanguage(priestSpells, 10))
@@ -215,5 +226,18 @@ if englishClass == "MAGE" then
 	createCustomMacroNailuj("mageCombustionButton", mageSpells, 4, "Combustion", "/use " .. chooseSpellByLanguage(mageSpells, 4) .. "\n" .. "/use 13")
 	createCustomMacroNailuj("mageFlamestrikeButton", mageSpells, 5, "Flamestrike", "/use [@cursor] " .. chooseSpellByLanguage(mageSpells, 5))
 	createCustomMacroNailuj("mageMeteorButton", mageSpells, 6, "Meteor", "/use [@cursor] " .. chooseSpellByLanguage(mageSpells, 6))
+end
+--------------------------------------------------------------------
+-- Creating shaman macros
+--------------------------------------------------------------------
+if englishClass == "SHAMAN" then
+	createCustomMacroNailuj("shamanCapacitorTotemButton", shamanSpells, 1, "Capacitor Totem", "/use [@player] " .. chooseSpellByLanguage(shamanSpells, 1))
+	createCustomMacroNailuj("shamanEarthbindTotemButton", shamanSpells, 2, "Earthbind Totem", "/use [@player] " .. chooseSpellByLanguage(shamanSpells, 2))
+	createCustomMacroNailuj("shamanChainHealButton", shamanSpells, 3, "Chain Heal", "/use [@mouseover] " .. chooseSpellByLanguage(shamanSpells, 3))
+	createCustomMacroNailuj("shamanPurifySpiritButton", shamanSpells, 4, "Purify Spirit", "/use [@mouseover] " .. chooseSpellByLanguage(shamanSpells, 4))
+	createCustomMacroNailuj("shamanHealingWaveButton", shamanSpells, 5, "Healing wave", "/use [@mouseover] " .. chooseSpellByLanguage(shamanSpells, 5))
+	createCustomMacroNailuj("shamanRiptideButton", shamanSpells, 6, "Riptide", "/use [@mouseover] " .. chooseSpellByLanguage(shamanSpells, 6))
+	createCustomMacroNailuj("shamanHealingSurgeButton", shamanSpells, 7, "Healing surge", "/use [@mouseover] " .. chooseSpellByLanguage(shamanSpells, 7))
+	createCustomMacroNailuj("shamanEarthShieldButton", shamanSpells, 8, "Earth Shield", "/use [@mouseover] " .. chooseSpellByLanguage(shamanSpells, 8))
 end
 
