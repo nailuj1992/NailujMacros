@@ -113,10 +113,11 @@ end
 --------------------------------------------------------------------
 
 function chooseSpellByLanguage(spells, index)
-	if GetLocale() == "esMX" then
-		return spells[index][3]
-	end
-	return spells[index][2]
+	--if GetLocale() == "esMX" then
+	--	return spells[index][3]
+	--end
+	--return spells[index][2]
+	return GetSpellName(spells[index][1])
 end
 
 function createCustomMacroNailuj(button, spells, pos, name, body)
@@ -128,11 +129,11 @@ function createCustomMacroNailuj(button, spells, pos, name, body)
 	button:SetScript("OnEvent", function(self,event, arg1)
 			if not InCombatLockdown() then
 				if event == "PLAYER_ENTERING_WORLD" then
-					local _, _, icon, _, _, _, _, _ = GetSpellInfo(spells[pos][1])
+					local icon = GetSpellTexture(spells[pos][1])
 					updateMacroNailuj(name, icon, body)
 				end
 				if event == "UNIT_SPELLCAST_STOP" and arg1 == "player" then
-					local _, _, icon, _, _, _, _, _ = GetSpellInfo(spells[pos][1])
+					local icon = GetSpellTexture(spells[pos][1])
 					updateMacroNailuj(name, icon, body)
 				end
 			end
@@ -174,7 +175,7 @@ end
 -- Creating DK macros
 --------------------------------------------------------------------
 if englishClass == "DEATHKNIGHT" then
-	createCustomMacroNailuj("dkDeathDecayButton", deathKnightSpells, 1, "Death and Decay", "/use [@cursor] " .. chooseSpellByLanguage(deathKnightSpells, 1))
+	createCustomMacroNailuj("dkDeathDecayButton", deathKnightSpells, 1, "Death and Decay", "/use [@player] " .. chooseSpellByLanguage(deathKnightSpells, 1))
 end
 
 --------------------------------------------------------------------
